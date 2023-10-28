@@ -1,14 +1,49 @@
 version: '3'
 
 services:
-    protonvpn-docker:
+    protonvpn-docker-jp:
         image: protonvpn-docker
         stdin_open: true
         tty: true
         environment:
             - SOCKD_WORKERS=10
+            - ProtonServer=JP
         ports:
             - "1080:1080"
+        cap_add:
+            - NET_ADMIN
+        devices:
+            - "/dev/net/tun:/dev/net/tun"
+        command: sh /root/startup.sh
+        volumes:
+            - "./startup.sh:/root/startup.sh"
+        
+    protonvpn-docker-nl1:
+        image: protonvpn-docker
+        stdin_open: true
+        tty: true
+        environment:
+            - SOCKD_WORKERS=10
+            - ProtonServer=NL
+        ports:
+            - "1081:1080"
+        cap_add:
+            - NET_ADMIN
+        devices:
+            - "/dev/net/tun:/dev/net/tun"
+        command: sh /root/startup.sh
+        volumes:
+            - "./startup.sh:/root/startup.sh"
+       
+    protonvpn-docker-us:
+        image: protonvpn-docker
+        stdin_open: true
+        tty: true
+        environment:
+            - SOCKD_WORKERS=10
+            - ProtonServer=US
+        ports:
+            - "1082:1080"
         cap_add:
             - NET_ADMIN
         devices:
