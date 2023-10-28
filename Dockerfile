@@ -5,11 +5,15 @@ RUN pacman -Syu --noconfirm && \
     pacman -S --noconfirm which expect openvpn dialog python-pip python-setuptools git dante && \
     pip install protonvpn-cli --break-system-packages
 
+RUN pacman --noconfirm  -sS java | grep jdk && \
+    pacman --noconfirm -S jdk-openjdk
+
+
 COPY ./vpn-setup.exp ./config.sh /tmp/
 
 ARG Mail
 ARG PW
-ARG Server
+
 
 # protonvpn-cli needs access to width
 ENV COLUMNS 80

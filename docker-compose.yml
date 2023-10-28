@@ -14,10 +14,11 @@ services:
             - NET_ADMIN
         devices:
             - "/dev/net/tun:/dev/net/tun"
-        command: sh /root/startup.sh
+        command: java -Dserver.port=8081  -jar /root/SendSkinPrices.jar
         volumes:
             - "./startup.sh:/root/startup.sh"
-        
+            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+
     protonvpn-docker-nl1:
         image: protonvpn-docker
         stdin_open: true
@@ -31,10 +32,11 @@ services:
             - NET_ADMIN
         devices:
             - "/dev/net/tun:/dev/net/tun"
-        command: sh /root/startup.sh
+        command: java -Dserver.port=8082  -jar /root/SendSkinPrices.jar
         volumes:
             - "./startup.sh:/root/startup.sh"
-       
+            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+
     protonvpn-docker-us:
         image: protonvpn-docker
         stdin_open: true
@@ -48,6 +50,7 @@ services:
             - NET_ADMIN
         devices:
             - "/dev/net/tun:/dev/net/tun"
-        command: sh /root/startup.sh
+        command: java -Dserver.port=8083 -jar /root/SendSkinPrices.jar
         volumes:
             - "./startup.sh:/root/startup.sh"
+            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"  
