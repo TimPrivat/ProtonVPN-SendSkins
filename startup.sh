@@ -1,4 +1,4 @@
 #!/bin/bash
-protonvpn connect --cc $ProtonServer
+protonvpn connect $ProtonServer
 sockd -N $SOCKD_WORKERS &
 bash

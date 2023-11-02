@@ -28,3 +28,4 @@ RUN expect /tmp/vpn-setup.exp
 RUN rm /tmp/vpn-setup.exp /tmp/config.sh
     
 COPY ./sockd.conf /etc/
+

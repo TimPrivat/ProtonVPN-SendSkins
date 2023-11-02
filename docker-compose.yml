@@ -7,32 +7,86 @@ services:
         tty: true
         environment:
             - SOCKD_WORKERS=10
-            - ProtonServer=JP
+            - ProtonServer=JP-FREE#3
         ports:
             - "1080:1080"
         cap_add:
             - NET_ADMIN
         devices:
             - "/dev/net/tun:/dev/net/tun"
-        command: java -Dserver.port=8081  -jar /root/SendSkinPrices.jar
+        command: java -Dserver.port=8081  -jar /root/SendSkinPrices.jar true 6 0
         volumes:
             - "./startup.sh:/root/startup.sh"
             - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
 
-    protonvpn-docker-nl1:
+    protonvpn-docker-nl-1:
         image: protonvpn-docker
         stdin_open: true
         tty: true
         environment:
             - SOCKD_WORKERS=10
-            - ProtonServer=NL
+            - ProtonServer=NL-FREE#14
         ports:
             - "1081:1080"
         cap_add:
             - NET_ADMIN
         devices:
             - "/dev/net/tun:/dev/net/tun"
-        command: java -Dserver.port=8082  -jar /root/SendSkinPrices.jar
+        command: java -Dserver.port=8082  -jar /root/SendSkinPrices.jar true 6 1
+        volumes:
+            - "./startup.sh:/root/startup.sh"
+            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+
+    protonvpn-docker-nl-2:
+        image: protonvpn-docker
+        stdin_open: true
+        tty: true
+        environment:
+            - SOCKD_WORKERS=10
+            - ProtonServer=NL-FREE#16
+        ports:
+            - "1082:1080"
+        cap_add:
+            - NET_ADMIN
+        devices:
+            - "/dev/net/tun:/dev/net/tun"
+        command: java -Dserver.port=8083  -jar /root/SendSkinPrices.jar true 6 2
+        volumes:
+            - "./startup.sh:/root/startup.sh"
+            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+
+    protonvpn-docker-nl-3:
+        image: protonvpn-docker
+        stdin_open: true
+        tty: true
+        environment:
+            - SOCKD_WORKERS=10
+            - ProtonServer=NL-FREE#114
+        ports:
+            - "1083:1080"
+        cap_add:
+            - NET_ADMIN
+        devices:
+            - "/dev/net/tun:/dev/net/tun"
+        command: java -Dserver.port=8084  -jar /root/SendSkinPrices.jar true 6 3
+        volumes:
+            - "./startup.sh:/root/startup.sh"
+            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+
+    protonvpn-docker-nl-4:
+        image: protonvpn-docker
+        stdin_open: true
+        tty: true
+        environment:
+            - SOCKD_WORKERS=10
+            - ProtonServer=NL-FREE#142
+        ports:
+            - "1084:1080"
+        cap_add:
+            - NET_ADMIN
+        devices:
+            - "/dev/net/tun:/dev/net/tun"
+        command: java -Dserver.port=8085  -jar /root/SendSkinPrices.jar true 6 4
         volumes:
             - "./startup.sh:/root/startup.sh"
             - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
@@ -43,14 +97,32 @@ services:
         tty: true
         environment:
             - SOCKD_WORKERS=10
-            - ProtonServer=US
+            - ProtonServer=US-FREE#37
         ports:
-            - "1082:1080"
+            - "1085:1080"
         cap_add:
             - NET_ADMIN
         devices:
             - "/dev/net/tun:/dev/net/tun"
-        command: java -Dserver.port=8083 -jar /root/SendSkinPrices.jar
+        command: java -Dserver.port=8086 -jar /root/SendSkinPrices.jar true 6 5
         volumes:
             - "./startup.sh:/root/startup.sh"
             - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"  
+
+              #   protonvpn-docker-ger:
+              #   image: protonvpn-docker
+              #   stdin_open: true
+              #    tty: true
+              #   environment:
+              #  - SOCKD_WORKERS=10
+              # - ProtonServer=US
+              #     ports:
+              #      - "1086:1080"
+              #   cap_add:
+              #      - NET_ADMIN
+              #    devices:
+              #       - "/dev/net/tun:/dev/net/tun"
+              #    command: java -Dserver.port=8087 -jar /root/SendSkinPrices.jar false 7 6
+              #    volumes:
+              #      - "./startup.sh:/root/startup.sh"
+              # - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
