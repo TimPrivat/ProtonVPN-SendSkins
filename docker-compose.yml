@@ -5,6 +5,7 @@ services:
         image: protonvpn-docker
         stdin_open: true
         tty: true
+        container_name: SendskinpricesVPN-JP  
         environment:
             - SOCKD_WORKERS=10
             - ProtonServer=JP-FREE#3
@@ -17,12 +18,14 @@ services:
         command: java -Dserver.port=8081  -jar /root/SendSkinPrices.jar true 6 0
         volumes:
             - "./startup.sh:/root/startup.sh"
-            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
-
+            - "./SendSkinPrices-0.0.1-SNAPSHOT.jar:/root/SendSkinPrices.jar"
+            - "/var/log/myprograms/SendSkinPrices/:/var/log/"
+                          
     protonvpn-docker-nl-1:
         image: protonvpn-docker
         stdin_open: true
         tty: true
+        container_name: SendskinpricesVPN-NL-1  
         environment:
             - SOCKD_WORKERS=10
             - ProtonServer=NL-FREE#14
@@ -35,12 +38,14 @@ services:
         command: java -Dserver.port=8082  -jar /root/SendSkinPrices.jar true 6 1
         volumes:
             - "./startup.sh:/root/startup.sh"
-            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+            - "./SendSkinPrices-0.0.1-SNAPSHOT.jar:/root/SendSkinPrices.jar"
+            - "/var/log/myprograms/SendSkinPrices/:/var/log/"
 
     protonvpn-docker-nl-2:
         image: protonvpn-docker
         stdin_open: true
         tty: true
+        container_name: SendskinpricesVPN-NL-2  
         environment:
             - SOCKD_WORKERS=10
             - ProtonServer=NL-FREE#16
@@ -53,12 +58,14 @@ services:
         command: java -Dserver.port=8083  -jar /root/SendSkinPrices.jar true 6 2
         volumes:
             - "./startup.sh:/root/startup.sh"
-            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+            - "./SendSkinPrices-0.0.1-SNAPSHOT.jar:/root/SendSkinPrices.jar"
+            - "/var/log/myprograms/SendSkinPrices/:/var/log/"
 
     protonvpn-docker-nl-3:
         image: protonvpn-docker
         stdin_open: true
         tty: true
+        container_name: SendskinpricesVPN-NL-3  
         environment:
             - SOCKD_WORKERS=10
             - ProtonServer=NL-FREE#114
@@ -71,12 +78,14 @@ services:
         command: java -Dserver.port=8084  -jar /root/SendSkinPrices.jar true 6 3
         volumes:
             - "./startup.sh:/root/startup.sh"
-            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+            - "./SendSkinPrices-0.0.1-SNAPSHOT.jar:/root/SendSkinPrices.jar"
+            - "/var/log/myprograms/SendSkinPrices/:/var/log/"
 
     protonvpn-docker-nl-4:
         image: protonvpn-docker
         stdin_open: true
         tty: true
+        container_name: SendskinpricesVPN-NL-4  
         environment:
             - SOCKD_WORKERS=10
             - ProtonServer=NL-FREE#142
@@ -89,12 +98,14 @@ services:
         command: java -Dserver.port=8085  -jar /root/SendSkinPrices.jar true 6 4
         volumes:
             - "./startup.sh:/root/startup.sh"
-            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"
+            - "./SendSkinPrices-0.0.1-SNAPSHOT.jar:/root/SendSkinPrices.jar"
+            - "/var/log/myprograms/SendSkinPrices/:/var/log/"
 
     protonvpn-docker-us:
         image: protonvpn-docker
         stdin_open: true
         tty: true
+        container_name: SendskinpricesVPN-US  
         environment:
             - SOCKD_WORKERS=10
             - ProtonServer=US-FREE#37
@@ -107,8 +118,8 @@ services:
         command: java -Dserver.port=8086 -jar /root/SendSkinPrices.jar true 6 5
         volumes:
             - "./startup.sh:/root/startup.sh"
-            - "./SendSkinPrices.jar:/root/SendSkinPrices.jar"  
-
+            - "./SendSkinPrices-0.0.1-SNAPSHOT.jar:/root/SendSkinPrices.jar"  
+            - "/var/log/myprograms/SendSkinPrices/:/var/log/" 
               #   protonvpn-docker-ger:
               #   image: protonvpn-docker
               #   stdin_open: true
