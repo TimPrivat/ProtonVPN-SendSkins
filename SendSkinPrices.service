@@ -1,0 +1,16 @@
+[Unit]
+Description=Starts Multiple Dockercontainer that sync the current Steammarktprices
+PartOf=docker.service
+After=docker.service
+
+StartLimitIntervalSec=0
+[Service]
+WorkingDirectory=/opt/csgoskins/ProtonVPNMultipleServers 
+ExecStartPre=/bin/bash -c "git clone https://github.com/TimPrivat/SendSkinPrices.git /tmp/SendSkinPrices && mvn clean install -DskipTests -f /tmp/SendSkinPrices/pom.xml && mv /tmp/SendSkinPrices/target/SendSkinPrices-0.0.1-SNAPSHOT.jar /opt/csgoskins/ProtonVPNMultipleServers && rm -rf /tmp/SendSkinPrices/ && rm -rf /var/log/myprograms/SendSkinPrices/*"
+ExecStart=/bin/bash -c "docker compose up"
+ExecStop=/bin/bash -c "docker compose down"
+StandardError=file:/var/log/myprograms/SendSkinPrices/systemdError.log
+StandardOutput=file:/var/log/myprograms/SendSkinPrices/systemdSTDOUT.log
+
+[Install] 
+WantedBy=multi-user.target
