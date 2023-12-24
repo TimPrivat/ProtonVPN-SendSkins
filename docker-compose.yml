@@ -108,7 +108,7 @@ services:
         container_name: SendskinpricesVPN-US  
         environment:
             - SOCKD_WORKERS=10
-            - ProtonServer=US-FREE#37
+            - ProtonServer=US-FREE#59
         ports:
             - "1085:1080"
         cap_add:
